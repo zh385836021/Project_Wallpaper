@@ -6,16 +6,32 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.test.zh.project_wallpaper.R;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * 分类
  * Created by Zane on 2016/5/30.
  */
 public class ClassifyFragment extends Fragment {
+    @Bind(R.id.title)
+    TextView title;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_type,container,false);
+        View view = inflater.inflate(R.layout.fragment_type, container, false);
+        ButterKnife.bind(this, view);
+        title.setText("分类");
+        return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }
