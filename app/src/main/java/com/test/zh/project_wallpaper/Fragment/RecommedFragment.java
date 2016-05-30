@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.test.zh.project_wallpaper.R;
 
 /**
+ * 推荐
  * Created by Zane on 2016/5/30.
  */
 public class RecommedFragment extends Fragment {
@@ -21,7 +22,5 @@ public class RecommedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_recommed,container,false);
         return view;
-
-
     }
 }
