@@ -8,28 +8,33 @@
 
     <include
         android:id="@+id/main_include"
-        layout="@layout/activity_include" />
+        layout="@layout/activity_include"
 
-
-    <android.support.design.widget.TabLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/main_tab"
-        android:background="@android:color/darker_gray"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabMode="scrollable"
-        android:layout_below="@+id/main_include"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@android:color/holo_green_dark"
-        app:tabSelectedTextColor="@android:color/holo_green_dark"
-        app:tabTextColor="@android:color/background_dark" />
-
+        />
     <FrameLayout
         android:id="@+id/main_frame"
+        android:layout_below="@+id/main_include"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/main_bottom_ll"
-        android:layout_below="@+id/main_tab">
+        android:layout_above="@+id/main_bottom_ll">
 
+        <android.support.design.widget.TabLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/main_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_include"
+            android:background="@drawable/bottom_bg"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@android:color/holo_green_dark"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@android:color/holo_green_dark"
+            app:tabTextColor="@android:color/background_dark" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_below="@+id/main_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </FrameLayout>
 
     <!--底部导航栏-->
@@ -38,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/background_light">
+        android:background="@drawable/bottom_bg">
 
         <RadioGroup
             android:id="@+id/radioGroup"

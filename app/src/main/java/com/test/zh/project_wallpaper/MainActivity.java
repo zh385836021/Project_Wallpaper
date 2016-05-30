@@ -52,15 +52,14 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        manager=getSupportFragmentManager();
         title.setText("壁纸精选");
         addFragment();
-        manager=getSupportFragmentManager();
-        initFragment();
         initlistener();
+        initFragment();
+
 
     }
     public void initlistener() {
@@ -71,10 +70,11 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     
     public  void initFragment() {
         tab_List=new ArrayList<>();
-        for (int i = 0; i < mainTab.getTabCount(); i++) {
-            tab_List.add(titles[i]);
+        for (int i = 0; i < titles.length; i++) {
+            TabLayout.Tab tab = mainTab.newTab().setText(titles[i]).setTag(i);
+            mainTab.addTab(tab);
         }
-        manager.beginTransaction().add(R.id.main_frame,list.get(0)).commit();
+       // manager.beginTransaction().add(R.id.main_frame,list.get(0)).commit();
     }
 
     public  void addFragment() {
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         RadioButton rb= (RadioButton) group.findViewById(checkedId);
         int num= Integer.parseInt(rb.getTag().toString());
-        manager.beginTransaction().add(R.id.main_frame,list.get(num)).commit();
+        manager.beginTransaction().replace(R.id.main_frame, list.get(num)).commit();
     }
 
     @Override
@@ -111,6 +111,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
+
+    }
+
+    //TODO 双击退出程序
+
+    @Override
+    public void onBackPressed() {
 
     }
 }
