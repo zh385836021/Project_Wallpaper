@@ -1,11 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#ffffff"
-    android:layout_height="match_parent">
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#e0e0e0"
+android:orientation="vertical">
 
-    <include
-        android:id="@+id/more_include"
-        layout="@layout/activity_include"
-        />
+<include
+    android:id="@+id/more_include"
+    layout="@layout/activity_include" />
+
+
+<TextView
+    android:id="@+id/tv_storge"
+    style="@style/More_TextViewStyle"
+    android:text="我的收藏" />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0.1dp"
+    android:background="#d0d0d0" />
+
+<TextView
+    android:id="@+id/tv_download"
+    style="@style/More_TextViewStyle"
+    android:text="我的下载" />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="4dp"
+    android:background="#d0d0d0" />
+
+<TextView
+    android:id="@+id/tv_recommed_friend"
+    style="@style/More_TextViewStyle"
+    android:text="推荐给好友" />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0.1dp"
+    android:background="#d0d0d0" />
+
+<TextView
+    android:id="@+id/tv_evaluate"
+    style="@style/More_TextViewStyle"
+    android:text="给个好评" />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0.1dp"
+    android:background="#d0d0d0" />
+
+<TextView
+    android:id="@+id/tv_setting"
+    style="@style/More_TextViewStyle"
+    android:text="设置" />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0.1dp"
+    android:background="#d0d0d0" />
 </LinearLayout>
