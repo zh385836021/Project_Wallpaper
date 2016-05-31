@@ -4,8 +4,35 @@
     android:background="#ffffff"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/recommed_include"
-        layout="@layout/activity_include"
-        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include
+                android:id="@+id/recommed_include"
+                layout="@layout/activity_include" />
+
+            <android.support.design.widget.TabLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/main_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recommed_include"
+                android:background="@drawable/bottom_bg"
+                app:tabIndicatorColor="@android:color/holo_green_dark"
+                app:tabSelectedTextColor="@android:color/holo_green_dark"
+                app:tabTextColor="@android:color/background_dark" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/main_tab">
+
+
+            </android.support.v4.view.ViewPager>
+        </LinearLayout>
+
+
 </LinearLayout>
