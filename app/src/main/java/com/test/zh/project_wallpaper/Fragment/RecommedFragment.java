@@ -72,7 +72,6 @@ public class RecommedFragment extends Fragment implements TabLayout.OnTabSelecte
     }
 
     public void initTab() {
-        mainTab.setSelectedTabIndicatorHeight(10);
         for (int i = 0; i < titles.length; i++) {
             TabLayout.Tab tab = mainTab.newTab().setText(titles[i]).setTag(i);
             mainTab.addTab(tab);
