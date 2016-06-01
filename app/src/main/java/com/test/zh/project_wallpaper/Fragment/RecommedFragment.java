@@ -1,20 +1,21 @@
 package com.test.zh.project_wallpaper.Fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.test.zh.project_wallpaper.Adapter.ViewPagerAdapter;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.test.zh.project_wallpaper.Adapter.RecommendAdapter;
+import com.test.zh.project_wallpaper.BaseApplication.MyApplication;
+import com.test.zh.project_wallpaper.Constant.IBind;
 import com.test.zh.project_wallpaper.R;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import butterknife.ButterKnife;
  * 推荐
  * Created by Zane on 2016/5/30.
  */
-public class RecommedFragment extends Fragment implements TabLayout.OnTabSelectedListener {
+public class RecommedFragment extends Fragment {
     @Bind(R.id.title)
     TextView title;
     @Bind(R.id.include_ll)
@@ -38,14 +39,16 @@ public class RecommedFragment extends Fragment implements TabLayout.OnTabSelecte
 
 
 
-    private ArrayList<ImageView> tab_List;
+    private ArrayList<Fragment> frag_List;
     private String[] titles = {"最新", "热门", "随机"};
-    private ViewPagerAdapter adapter;
+    private RecommendAdapter adapter;
+    private ImageLoader Loader;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recommed, container, false);
         ButterKnife.bind(this, view);
+        Loader = ((MyApplication) getActivity().getApplication()).getLoader();
         initTab();
         initAdapter();
         return view;
@@ -60,14 +63,8 @@ public class RecommedFragment extends Fragment implements TabLayout.OnTabSelecte
 
     //TODO 设置适配器
     private void initAdapter() {
-        tab_List = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            ImageView iv=new ImageView(getActivity());
-            iv.setScaleType(ImageView.ScaleType.FIT_XY);
-            iv.setImageResource(R.drawable.ic_launcher);
-            tab_List.add(iv);
-        }
-        adapter = new ViewPagerAdapter(tab_List,titles);
+        frag_List = new ArrayList<>();
+        adapter = new RecommendAdapter(frag_List,titles,getFragmentManager());
         viewPager.setAdapter(adapter);
     }
 
@@ -78,19 +75,11 @@ public class RecommedFragment extends Fragment implements TabLayout.OnTabSelecte
         }
     }
 
-    @Override
-    public void onTabSelected(TabLayout.Tab tab) {
-
-    }
-
-    @Override
-    public void onTabUnselected(TabLayout.Tab tab) {
-
-    }
-
-    @Override
-    public void onTabReselected(TabLayout.Tab tab) {
-
+    //TODO 添加图片地址
+    public void initImage() {
+        frag_List.add(RecommendItemFragment.newInstance(IBind.RECOMMEND_NEW));
+        frag_List.add(RecommendItemFragment.newInstance(IBind.RECOMMEND_RANDOM));
+        frag_List.add(RecommendItemFragment.newInstance(IBind.CLASSIFY_DESIGN_HOT));
     }
 
     @Override

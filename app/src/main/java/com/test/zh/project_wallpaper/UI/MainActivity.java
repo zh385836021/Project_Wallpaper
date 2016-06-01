@@ -2,20 +2,14 @@ package com.test.zh.project_wallpaper.UI;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.test.zh.project_wallpaper.Adapter.ViewPagerAdapter;
 import com.test.zh.project_wallpaper.Fragment.ClassifyFragment;
 import com.test.zh.project_wallpaper.Fragment.MoreFragment;
 import com.test.zh.project_wallpaper.Fragment.RecommedFragment;
