@@ -39,7 +39,7 @@ public class RecommedFragment extends Fragment {
 
 
 
-    private ArrayList<Fragment> frag_List;
+    private ArrayList<Fragment> frag_List= new ArrayList<>();
     private String[] titles = {"最新", "热门", "随机"};
     private RecommendAdapter adapter;
     private ImageLoader Loader;
@@ -50,6 +50,7 @@ public class RecommedFragment extends Fragment {
         ButterKnife.bind(this, view);
         Loader = ((MyApplication) getActivity().getApplication()).getLoader();
         initTab();
+        initImage();
         initAdapter();
         return view;
     }
@@ -63,7 +64,7 @@ public class RecommedFragment extends Fragment {
 
     //TODO 设置适配器
     private void initAdapter() {
-        frag_List = new ArrayList<>();
+
         adapter = new RecommendAdapter(frag_List,titles,getFragmentManager());
         viewPager.setAdapter(adapter);
     }

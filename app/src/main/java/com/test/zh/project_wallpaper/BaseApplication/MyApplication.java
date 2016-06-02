@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -41,7 +42,7 @@ public class MyApplication extends Application {
         ImageLoaderConfiguration config=new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .threadPoolSize(3)  //最多可以同时下载多少张图片
                 .memoryCacheSizePercentage(60)  //设置最大的内容大小，占用可用内存的百分比
-                .memoryCache(new WeakMemoryCache()) //设置的缓存策略
+                .memoryCache(new LruMemoryCache(2*1024*1024)) //设置的缓存策略
                 .diskCacheSize(10*1024*1024) //设置磁盘缓存的最大带下
                 .diskCache(new UnlimitedDiskCache(file))  //设置磁盘缓存策略,参数中的file、：设置图片的存储地址
                 .diskCacheFileNameGenerator(new HashCodeFileNameGenerator()) //设置文件的命名方式
@@ -56,7 +57,7 @@ public class MyApplication extends Application {
         return new DisplayImageOptions.Builder()
                 .cacheInMemory(true)  //是指图片下载后是否缓存到内存中
                 .cacheOnDisk(true)//是指图片下载后是否到本地
-                .showImageOnLoading(R.drawable.anim_loading)  // 设置图片下载过程中，控件上显示的图片
+                //.showImageOnLoading(R.drawable.anima_loading)  // 设置图片下载过程中，控件上显示的图片
                 .showImageOnFail(R.drawable.load_failed) //设置图片下载失败，控件上显示的图片
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 .build();

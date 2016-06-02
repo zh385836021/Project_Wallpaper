@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.test.zh.project_wallpaper.Bean.RecommendBean;
 import com.test.zh.project_wallpaper.R;
-import com.test.zh.project_wallpaper.customView.RecommendImageView;
 
 import java.util.ArrayList;
 
@@ -27,10 +26,11 @@ public class PullToRefreshGridViewAdapter extends BaseAdapter {
     private Context context;
 
 
-    public PullToRefreshGridViewAdapter(ArrayList<RecommendBean.DataBean.WallpaperListInfoBean> iv_List, ImageLoader loader) {
-        inflater = LayoutInflater.from(context);
+    public PullToRefreshGridViewAdapter(Context context, ArrayList<RecommendBean.DataBean.WallpaperListInfoBean> iv_List, ImageLoader loader) {
         this.iv_List = iv_List;
         this.loader = loader;
+        this.context = context;
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -50,27 +50,29 @@ public class PullToRefreshGridViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder=null;
+        ViewHolder holder = null;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_gridview, parent, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
 
         } else {
-            holder= (ViewHolder) convertView.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        loader.displayImage(iv_List.get(position).getWallPaperMiddle(),holder.recommIv);
+        loader.displayImage(iv_List.get(position).getWallPaperMiddle(), holder.recommIv);
 
         return convertView;
     }
 
+
     static class ViewHolder {
         @Bind(R.id.recomm_iv)
-        RecommendImageView recommIv;
+        ImageView recommIv;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
     }
+
 }
