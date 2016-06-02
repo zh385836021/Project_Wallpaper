@@ -40,7 +40,6 @@ public class RecommendItemFragment extends Fragment {
     private  int currentPage=1;//当前页数
     private Handler handler = new Handler();
     private ArrayList<RecommendBean.DataBean.WallpaperListInfoBean> data_List;
-    private ArrayList<RecommendBean> total_List=new ArrayList<>();
     private PullToRefreshGridViewAdapter adapter;
     private String url;
     private String totalCount;
@@ -187,7 +186,7 @@ public class RecommendItemFragment extends Fragment {
                 if (mList!=null) {
                     data_List.addAll(mList);
                     setAdapter();
-                   // adapter.notifyDataSetChanged();
+                    adapter.notifyDataSetChanged();
                 }
 
 
