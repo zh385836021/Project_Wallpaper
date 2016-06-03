@@ -29,29 +29,86 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_search_machine"
-            style="@style/Search_HotSearch_TextStyle"
-            android:background="@mipmap/ic_launcher"
-            android:text="asd" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/tv_search_cartoon"
-            style="@style/Search_HotSearch_TextStyle"
-            android:background="@mipmap/ic_launcher"
-            android:text="asd" />
 
-        <TextView
-            android:id="@+id/tv_search_scenery"
-            style="@style/Search_HotSearch_TextStyle"
-            android:background="@mipmap/ic_launcher"
-            android:text="asd" />
+            <ImageView
+                android:id="@+id/iv_search_machine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom" />
 
-        <TextView
-            android:id="@+id/tv_search_animal"
-            style="@style/Search_HotSearch_TextStyle"
-            android:background="@mipmap/ic_launcher"
-            android:text="asd" />
+            <TextView
+                android:id="@+id/tv_search_machine"
+                style="@style/Search_HotSearch_TextStyle"
+                android:layout_gravity="center|bottom"
+                android:text="asd" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/iv_search_cartoon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom" />
+
+            <TextView
+                android:id="@+id/tv_search_cartoon"
+                style="@style/Search_HotSearch_TextStyle"
+                android:layout_gravity="center|bottom"
+                android:text="asd" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/iv_search_scenery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom" />
+
+            <TextView
+                android:id="@+id/tv_search_scenery"
+                style="@style/Search_HotSearch_TextStyle"
+                android:layout_gravity="center|bottom"
+                android:text="asd" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/iv_search_animal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom" />
+
+            <TextView
+                android:id="@+id/tv_search_animal"
+                style="@style/Search_HotSearch_TextStyle"
+                android:layout_gravity="center|bottom"
+                android:text="asd" />
+        </FrameLayout>
 
     </LinearLayout>
 

@@ -53,8 +53,8 @@ public class ClassifyFragment extends Fragment {
         title.setText("分类");
         queue = Volley.newRequestQueue(getActivity());
         Loader = ((MyApplication) getActivity().getApplication()).getLoader();
-        initAdapter();
         initData();
+        initAdapter();
         return view;
     }
 

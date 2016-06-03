@@ -60,7 +60,7 @@ public class PullToRefreshGridViewAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        loader.displayImage(iv_List.get(position).getWallPaperMiddle(), holder.recommIv);
+        loader.displayImage(iv_List.get(position).getWallPaperSource(), holder.recommIv);
 
         return convertView;
     }

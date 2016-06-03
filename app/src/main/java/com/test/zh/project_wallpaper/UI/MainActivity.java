@@ -52,9 +52,10 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         manager = getSupportFragmentManager();
 
         addFragment();
+        manager.beginTransaction().add(R.id.main_frame,list.get(0)).commit();
         initlistener();
 
-        manager.beginTransaction().add(R.id.main_frame,list.get(0)).commit();
+
     }
 
 
@@ -76,14 +77,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         int num = Integer.parseInt(rb.getTag().toString());
         if (!list.get(num).isAdded()) {
             manager.beginTransaction().add(R.id.main_frame, list.get(num)).commit();
-        }
-        for (int i = 0; i < list.size(); i++) {
-            if (i==num) {
-                manager.beginTransaction().show(list.get(i)).commit();
-            }else{
-                manager.beginTransaction().hide(list.get(i)).commit();
+        }else{
+            for (int i = 0; i < list.size(); i++) {
+                if (i==num) {
+                    manager.beginTransaction().show(list.get(i)).commit();
+                }else{
+                    manager.beginTransaction().hide(list.get(i)).commit();
+                }
             }
         }
+
     }
 
     //TODO 双击退出程序
