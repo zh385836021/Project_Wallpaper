@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         int num = Integer.parseInt(rb.getTag().toString());
         if (!list.get(num).isAdded()) {
             manager.beginTransaction().add(R.id.main_frame, list.get(num)).commit();
-        }else{
+        }
             for (int i = 0; i < list.size(); i++) {
                 if (i==num) {
                     manager.beginTransaction().show(list.get(i)).commit();
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                     manager.beginTransaction().hide(list.get(i)).commit();
                 }
             }
-        }
+
 
     }
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private void doubleClick() {
         System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
         mHits[mHits.length-1] = SystemClock.uptimeMillis();
-        if (SystemClock.uptimeMillis() - mHits[0] <= 500) {
+        if (SystemClock.uptimeMillis() - mHits[0] <= 200) {
             finish();
         } else {
             Toast.makeText(this, "再一次点击退出壁纸精选", Toast.LENGTH_SHORT).show();
