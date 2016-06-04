@@ -2,21 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
 
-    <ImageView
-        android:layout_weight="1"
-        android:id="@+id/search_iv_pager1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
+    <LinearLayout
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:layout_weight="1"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/search_iv_pager2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <ImageView
+            android:src="@drawable/ic_launcher"
+            android:id="@+id/search_iv_pager1"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:src="@drawable/ic_launcher"
+            android:id="@+id/search_iv_pager2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1" />
+    </LinearLayout>
 </LinearLayout>

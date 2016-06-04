@@ -47,7 +47,7 @@ public class Search_AD_Adapter extends PagerAdapter {
         container.addView(view);
 
         ImageView iv1 = (ImageView) view.findViewById(R.id.search_iv_pager1);
-        ImageView iv2 = (ImageView) view.findViewById(R.id.search_iv_pager1);
+        ImageView iv2 = (ImageView) view.findViewById(R.id.search_iv_pager2);
 
         loader.displayImage(iv1.getTag().toString(),iv1);
         loader.displayImage(iv2.getTag().toString(),iv2);

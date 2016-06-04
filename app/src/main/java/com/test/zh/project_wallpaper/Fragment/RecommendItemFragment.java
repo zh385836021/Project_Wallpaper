@@ -78,27 +78,7 @@ public class RecommendItemFragment extends Fragment {
 
     //TODO grideView 下拉刷新事件
     public void initListener() {
-//               loader.setDefaultLoadingListener(new ImageLoadingListener() {
-//            @Override
-//            public void onLoadingStarted(String imageUri, View view) {
-//                AnimationUtils.loadAnimation(getActivity(),R.anim.anim_loading);
-//            }
-//
-//            @Override
-//            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-//
-//            }
-//
-//            @Override
-//            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-//
-//            }
-//
-//            @Override
-//            public void onLoadingCancelled(String imageUri, View view) {
-//
-//            }
-//        });
+//               loader.setDefaultLoadingListener();
 
         pulltoGridview.setMode(PullToRefreshBase.Mode.BOTH);
         pulltoGridview.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<GridView>() {
@@ -130,16 +110,16 @@ public class RecommendItemFragment extends Fragment {
                     public void run() {
                         int countSize=Integer.parseInt(totalCount);
                         currentPage++;
-                        if (currentPage >= countSize/60) {
-                            Toast.makeText(getActivity(), "已经是第最后一页了", Toast.LENGTH_SHORT).show();
-                            pulltoGridview.onRefreshComplete();
-                        } else {
-                            currentPage++;
+//                        if (currentPage >= countSize/60) {
+//                            Toast.makeText(getActivity(), "已经是第最后一页了", Toast.LENGTH_SHORT).show();
+//                            pulltoGridview.onRefreshComplete();
+//                        } else {
+                            //currentPage++;
                             String url=getPageSize(currentPage);
                             initNetDatas(url);
                            // adapter.notifyDataSetChanged();
                             pulltoGridview.onRefreshComplete();
-                        }
+                        //}
 
 
                         Log.i("RecommendItemFragment","onPullUpToRefresh currentPageSize="+currentPage);

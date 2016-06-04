@@ -88,7 +88,7 @@ public class Search_Recycler_Adapter extends RecyclerView.Adapter<RecyclerView.V
             case SEARCH_HOT:
                 Search_Hot search_hot = (Search_Hot) holder;
 
-                if (list.get(position).getImgs().size() != 0) {
+                if (list != null) {
                     Log.i(SEARCH_RECYCLER_ADAPTER, "displayImage:" + list.get(position).getImgs().size());
                     loader.displayImage(list.get(0).getImgs().get(0), search_hot.ivSearchMachine);
                     loader.displayImage(list.get(1).getImgs().get(0), search_hot.ivSearchCartoon);

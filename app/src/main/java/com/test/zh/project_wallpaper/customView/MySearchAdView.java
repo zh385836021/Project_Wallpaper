@@ -30,7 +30,6 @@ public class MySearchAdView extends LinearLayout {
     private Handler handler = new Handler();
     private Runnable r;
     private boolean flag;
-    private ImageLoader loader;
     private ArrayList<SearchMoreBean.DataBean.TopicBean> more_List = new ArrayList<>();
 
     //TODO 用于控制ViewPager中显示的数据源
@@ -55,9 +54,9 @@ public class MySearchAdView extends LinearLayout {
 
         initView(view);
         setAdapter();
-        initData();
         initListener();
         startRunnable();
+
     }
 
 
@@ -77,7 +76,7 @@ public class MySearchAdView extends LinearLayout {
     }
 
     //TODO 初始化并添加RadioButton
-    private void initData() {
+    private void initRadioBtn() {
         for (int i = 0; i < more_List.size() / 2; i++) {
             RadioButton rb = new RadioButton(context);
             rb.setId(i);
@@ -159,7 +158,7 @@ public class MySearchAdView extends LinearLayout {
     public void upDataViewPager(ArrayList<SearchMoreBean.DataBean.TopicBean> more_List, ImageLoader loader) {
 
         this.more_List = more_List;
-        initData();
+            initRadioBtn();
 
         for (int i = 0; i < more_List.size() / 2; i++) {
             View view = LayoutInflater.from(context).inflate(R.layout.search_viewpager_item, null);
