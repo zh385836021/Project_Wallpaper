@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_transparent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_centerVertical="true"
+        android:layout_marginTop="28dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bottom_bg"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <EditText
+            android:id="@+id/search_edit"
+            android:paddingLeft="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="50dp"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/search_icon"
+            android:background="@color/search_hot_select_text"
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+        <ImageView
+            android:id="@+id/search_ed_iv"
+            android:gravity="center_vertical"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            android:layout_toLeftOf="@+id/search_cancle"
+            android:src="@drawable/search_dialog_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/search_cancle"
+            android:text="取消"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:layout_marginRight="8dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</RelativeLayout>

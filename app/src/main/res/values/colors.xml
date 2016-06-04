@@ -6,4 +6,5 @@
     <color name="more_item_click">#FF7F8EEC</color>
     <color name="line_color">#000000</color>
     <color name="search_hot_select_text">#ffffff</color>
+    <color name="transparent">#0000</color>
 </resources>

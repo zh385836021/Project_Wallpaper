@@ -58,12 +58,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     }
 
-
+    //TODO 初始化事件
     public void initlistener() {
         radioGroup.setOnCheckedChangeListener(this);
 
     }
 
+    //TODO 添加Fragment
     public void addFragment() {
         list.add(new RecommedFragment());
         list.add(new ClassifyFragment());

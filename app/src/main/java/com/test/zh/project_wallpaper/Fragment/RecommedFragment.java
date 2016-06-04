@@ -64,11 +64,11 @@ public class RecommedFragment extends Fragment {
 
     //TODO 设置适配器
     private void initAdapter() {
-
         adapter = new RecommendAdapter(frag_List,titles,getFragmentManager());
         viewPager.setAdapter(adapter);
     }
 
+    //TODO 对TabLayout设置标题
     public void initTab() {
         for (int i = 0; i < titles.length; i++) {
             TabLayout.Tab tab = mainTab.newTab().setText(titles[i]).setTag(i);

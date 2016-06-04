@@ -65,7 +65,7 @@ public class RecommendItemFragment extends Fragment {
 
         ILoadingLayout il = pulltoGridview.getLoadingLayoutProxy();
         il.setLastUpdatedLabel("上次加载时间" + times);
-        il.setLoadingDrawable(getResources().getDrawable(R.drawable.pic_loading, null));
+        il.setLoadingDrawable(getResources().getDrawable(R.drawable.pic_loading));
         il.setPullLabel("下拉刷新");
         il.setRefreshingLabel("努力刷新数据中...");
         il.setReleaseLabel("释放后刷新数据");

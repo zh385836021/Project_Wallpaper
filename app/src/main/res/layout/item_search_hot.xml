@@ -15,7 +15,7 @@
             android:layout_marginLeft="10dp"
             android:text="热门搜索"
             android:textColor="@color/line_color"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -24,7 +24,9 @@
     <LinearLayout
         android:id="@+id/ll_search_select"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_below="@+id/ll_search_top"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -46,7 +48,7 @@
                 android:id="@+id/tv_search_machine"
                 style="@style/Search_HotSearch_TextStyle"
                 android:layout_gravity="center|bottom"
-                android:text="asd" />
+                 />
         </FrameLayout>
 
         <FrameLayout
@@ -66,7 +68,7 @@
                 android:id="@+id/tv_search_cartoon"
                 style="@style/Search_HotSearch_TextStyle"
                 android:layout_gravity="center|bottom"
-                android:text="asd" />
+                 />
         </FrameLayout>
 
 
@@ -87,7 +89,7 @@
                 android:id="@+id/tv_search_scenery"
                 style="@style/Search_HotSearch_TextStyle"
                 android:layout_gravity="center|bottom"
-                android:text="asd" />
+                />
         </FrameLayout>
 
         <FrameLayout
@@ -107,7 +109,7 @@
                 android:id="@+id/tv_search_animal"
                 style="@style/Search_HotSearch_TextStyle"
                 android:layout_gravity="center|bottom"
-                android:text="asd" />
+                />
         </FrameLayout>
 
     </LinearLayout>

@@ -11,14 +11,15 @@
         android:gravity="center_vertical">
 
         <TextView
+            android:id="@+id/search_title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:drawableRight="@drawable/point"
             android:paddingRight="8dp"
-            android:text="文字"
+            android:text=""
             android:textColor="@color/line_color"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
     </LinearLayout>

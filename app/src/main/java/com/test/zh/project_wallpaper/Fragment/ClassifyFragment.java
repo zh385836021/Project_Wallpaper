@@ -60,7 +60,7 @@ public class ClassifyFragment extends Fragment {
 
 
 
-    //Volley下载数据
+    //TODO Volley下载数据
     public void initData() {
         list=new ArrayList<>();
         WallPaperRequest<ClassifyBean> request = new WallPaperRequest<>(ClassifyBean.class, IBind.CLASSIFY_MAIN, new Response.Listener<ClassifyBean>() {
