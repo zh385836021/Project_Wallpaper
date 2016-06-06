@@ -1,6 +1,7 @@
 package com.test.zh.project_wallpaper.Fragment;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.PaintDrawable;
@@ -37,6 +38,7 @@ import com.test.zh.project_wallpaper.Bean.SearchListBean;
 import com.test.zh.project_wallpaper.Bean.SearchMoreBean;
 import com.test.zh.project_wallpaper.Constant.IBind;
 import com.test.zh.project_wallpaper.R;
+import com.test.zh.project_wallpaper.UI.SearchDataActivity;
 import com.test.zh.project_wallpaper.request.WallPaperRequest;
 
 import java.util.ArrayList;
@@ -59,13 +61,17 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     private RequestQueue queue;
     private ImageLoader loader;
     private static final String TAG = "SearchFragment";
-    private TextView search_cancle;
+    //    private TextView search_cancle;
+//    private EditText search_Et;
+//    private ImageView search_iv;
+//    private PopupWindow popupWindow;
+    private ArrayList<SearchListBean.DataBean> beanList = new ArrayList<>();
+    private ArrayList<SearchHotBean.DataBean> hotList = new ArrayList<>();
+    private ArrayList<SearchMoreBean.DataBean.TopicBean> moreList = new ArrayList<>();
+    private Dialog dialog;
     private EditText search_Et;
     private ImageView search_iv;
-    private PopupWindow popupWindow;
-    private ArrayList<SearchListBean.DataBean> beanList=new ArrayList<>();
-    private ArrayList<SearchHotBean.DataBean> hotList=new ArrayList<>();
-    private ArrayList<SearchMoreBean.DataBean.TopicBean> moreList=new ArrayList<>();
+    private TextView search_cancle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,6 +93,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         initRecyclerAdapter();
         initListenter();
 
+
     }
 
     //TODO 使用Volley请求 文字、娱乐等 网络数据
@@ -96,7 +103,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onResponse(SearchListBean response) {
                 if (response != null && response.getData() != null) {
-                    Log.i("!!!!!!!!","beanList  response:"+beanList+"-----------"+response.getData());
+                    Log.i("!!!!!!!!", "beanList  response:" + beanList + "-----------" + response.getData());
                     beanList.addAll(response.getData());
                     search_Adapter.updateList(beanList);
                     search_Adapter.notifyDataSetChanged();
@@ -169,7 +176,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     }
 
 
-//    //TODO 加载适配器
+    //    //TODO 加载适配器
     public void initRecyclerAdapter() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         search_Adapter = new Search_Recycler_Adapter(getActivity(), loader);
@@ -184,18 +191,10 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     }
 
     public void initDialog() {
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.search_my_dialog, null);
-        popupWindow = new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT,false);
-        //设置可以获取焦点，否则弹出菜单中的EditText是无法获取输入的
-        popupWindow.setFocusable(true);
-        //这句是为了防止弹出菜单获取焦点之后，点击activity的其他组件没有响应
-        popupWindow.setBackgroundDrawable(new BitmapDrawable());
-        //防止虚拟软键盘被弹出菜单遮住
-        popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        //在底部显示
-        popupWindow.showAsDropDown(view, Gravity.BOTTOM, 0, 0);
 
-
+        View view = View.inflate(getActivity(), R.layout.search_my_dialog, null);
+        dialog = new Dialog(getActivity(), R.style.dialog);
+        dialog.setContentView(view);
         search_Et = (EditText) view.findViewById(R.id.search_edit);
         search_iv = (ImageView) view.findViewById(R.id.search_ed_iv);
         search_cancle = (TextView) view.findViewById(R.id.search_cancle);
@@ -203,8 +202,9 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         search_Et.addTextChangedListener(textWacher);
         search_cancle.setOnClickListener(this);
         search_iv.setOnClickListener(this);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
 
-        popupWindow.showAsDropDown(view, 0, 0);
     }
 
     //TODO 文本监听事件
@@ -238,7 +238,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                 initDialog();
                 break;
             case R.id.search_cancle:
-                popupWindow.dismiss();
+                dialog.dismiss();
                 break;
             case R.id.search_ed_iv:
                 search_Et.setText(" ");

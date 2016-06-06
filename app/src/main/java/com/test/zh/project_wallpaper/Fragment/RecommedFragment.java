@@ -1,5 +1,6 @@
 package com.test.zh.project_wallpaper.Fragment;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,10 +10,13 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.test.zh.project_wallpaper.Adapter.RecommendAdapter;
 import com.test.zh.project_wallpaper.BaseApplication.MyApplication;
 import com.test.zh.project_wallpaper.Constant.IBind;
@@ -38,7 +42,6 @@ public class RecommedFragment extends Fragment {
     ViewPager viewPager;
 
 
-
     private ArrayList<Fragment> frag_List= new ArrayList<>();
     private String[] titles = {"最新", "热门", "随机"};
     private RecommendAdapter adapter;
@@ -49,6 +52,7 @@ public class RecommedFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_recommed, container, false);
         ButterKnife.bind(this, view);
         Loader = ((MyApplication) getActivity().getApplication()).getLoader();
+
         initTab();
         initImage();
         initAdapter();
@@ -61,6 +65,10 @@ public class RecommedFragment extends Fragment {
         mainTab.setupWithViewPager(viewPager);
         title.setText("壁纸精选");
     }
+
+
+
+
 
     //TODO 设置适配器
     private void initAdapter() {

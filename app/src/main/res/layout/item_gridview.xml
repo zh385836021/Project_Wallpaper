@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/recomm_iv"
-        android:scaleType="fitXY"
         android:layout_width="match_parent"
+        android:scaleType="fitXY"
         android:layout_height="300dp" />
 
-
-
-</RelativeLayout>
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal" />
+</FrameLayout>
